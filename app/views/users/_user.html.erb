@@ -1,0 +1,8 @@
+<li>
+  <%= link_to user.id,user %>
+  <%= gravatar_for user, size: 30 %>
+  <%= link_to user.name, user %>
+  <%= link_to 'Destroy', user_path(user),
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+  </li>
