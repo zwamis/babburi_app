@@ -18,7 +18,7 @@
 <%= will_paginate %>-->
 
 
-<% provide(:title, 'All users') %>
+<!--<% provide(:title, 'All users') %>
 <h1>All users</h1>
 
 <%= will_paginate %>
@@ -29,4 +29,31 @@
   <% end %>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate %>-->
+<div class = "container3">
+<h2>All Users</h2>
+<table class="table table-striped table-bordered table-condensed table-hover">
+
+ <tr>
+    <th>Name</th><br>
+    <th>Email</th><br>
+    <th>Delete</th>
+
+  </tr>
+<% User.all.each do |user| %>
+<tr>
+<td><%= user.name %></td>
+<td><%= user.email %></td>
+<!--<td><%= link_to 'Destroy', user_path(user),
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %></td>-->
+  <td><%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>
+    <span class="glyphicon glyphicon-remove"></span>
+    Delete</td>
+  <% end %>
+</tr>
+
+
+<% end %>
+
+</table>
